@@ -1,0 +1,5 @@
+#!/bin/sh
+[ -d data ] && rm -r d
+mkdir -p data/notes
+mkdir -p data/files
+sqlite3 data/db.sqlite < schema.sql
