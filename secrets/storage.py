@@ -66,13 +66,13 @@ class Storage():
         messages = []
         c = self.conn.cursor()
         while head is not None:
-            mid, has_note, filename, prev = next(c.execute('select id, has_note, filename, prev from messages where id = ?', (head,)))
+            has_note, filename, prev = next(c.execute('select has_note, filename, prev from messages where id = ?', (head,)))
             if has_note:
-                with open(self.note_path(mid), 'r') as f:
+                with open(self.note_path(head), 'r') as f:
                     note = f.read()
             else:
                 note = None
-            messages.append((mid, head, note, filename))
+            messages.append((head, note, filename))
             head = prev
         return messages
 

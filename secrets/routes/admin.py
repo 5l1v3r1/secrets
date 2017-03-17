@@ -85,6 +85,7 @@ def admin_secrets_post():
 @with_admin_auth
 def admin_secret(name):
     messages = get_st().get_messages(name)
+    print(messages)
     return render_template('admin/secret.html', name=name, messages=messages)
 
 
