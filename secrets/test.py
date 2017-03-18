@@ -11,5 +11,4 @@ class File(object):
         with open(os.path.join(path, fname), 'w') as f:
             f.write(self.contents)
 
-
 st = Storage('data')
